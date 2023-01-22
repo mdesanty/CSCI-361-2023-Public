@@ -1,4 +1,4 @@
-package oop.for_each_loop;
+package oop.for_each_loops;
 
 import java.util.ArrayList;
 import java.util.Arrays;
