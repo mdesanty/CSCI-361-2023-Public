@@ -7,68 +7,68 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        List<Person> people = new ArrayList<Person>();
+        List<Car> cars = new ArrayList<Car>();
 
-        Person randy = new Person("Randy", 21);
-        people.add(randy);
+        Car honda = new Car("Honda", 2012);
+        cars.add(honda);
 
-        Person pete = new Person("Pete", 12);
-        people.add(pete);
+        Car audi = new Car("Audi", 2009);
+        cars.add(audi);
 
-        Person dan = new Person("Dan", 18);
-        people.add(dan);
+        Car ford = new Car("Ford", 2021);
+        cars.add(ford);
 
-        System.out.println(people);
-        // [<Name: Randy, Age: 21>, <Name: Pete, Age: 12>, <Name: Dan, Age: 18>]
+        System.out.println(cars);
+        // [<Make: Honda, Year: 2012>, <Make: Audi, Year: 2009>, <Make: Ford, Year: 2021>]
 
         // Using sort with our class that implements comparator:
-        Collections.sort(people);
-        System.out.println(people);
-        // [<Name: Pete, Age: 12>, <Name: Dan, Age: 18>, <Name: Randy, Age: 21>]
+        Collections.sort(cars);
+        System.out.println(cars);
+        // [<Make: Audi, Year: 2009>, <Make: Honda, Year: 2012>, <Make: Ford, Year: 2021>]
 
         // Using an anonymous class to define sorting on the fly:
-        Collections.sort(people,
-            new Comparator<Person>() {
+        Collections.sort(cars,
+            new Comparator<Car>() {
                 @Override
-                public int compare(Person personA, Person personB) {
-                    int comparison = personA.getName().compareTo(personB.getName());
+                public int compare(Car carA, Car carB) {
+                    int comparison = carA.getMake().compareTo(carB.getMake());
 
                     // Sort by name ascending.
                     if(comparison < 0)
-                        // personA is less than personB.
-                        return -1;
-                    else if(comparison > 0)
-                        // personA is greater than personB.
+                        // carA is less than carB.
+                        // but since we want descending order we return 1 so that carA is placed before carB.
                         return 1;
+                    else if(comparison > 0)
+                        // carA is greater than carB.
+                        // but since we want descending order we return 1 so that carA is placed after carB.
+                        return -1;
                     else
-                        // personA is the same as personB.
+                        // carA is the same as carB.
                         return 0;
                 }
             }
         );
-        System.out.println(people);
-        // [<Name: Dan, Age: 18>, <Name: Pete, Age: 12>, <Name: Randy, Age: 21>]
+        System.out.println(cars);
+        // [<Make: Honda, Year: 2012>, <Make: Ford, Year: 2021>, <Make: Audi, Year: 2009>]
 
         // Using a lamba to define sorting on the fly:
-        Collections.sort(people,
-            (Person personA, Person personB) -> {
-                int comparison = personA.getName().compareTo(personB.getName());
+        Collections.sort(cars,
+            (Car carA, Car carB) -> {
+                int comparison = carA.getMake().compareTo(carB.getMake());
 
                 // Sort by name descending.
                 if (comparison < 0)
-                    // personA is less than personB.
-                    // but since we want descending order we return 1 so that personA is placed before personB.
-                    return 1;
-                else if (comparison > 0)
-                    // personA is greater than personB.
-                    // but since we want descending order we return 1 so that personA is placed after personB.
+                    // carA is less than personB.
                     return -1;
+                else if (comparison > 0)
+                    // carA is greater than personB.
+                    return 1;
                 else
                     // personA is the same as personB.
                     return 0;
             }
         );
-        System.out.println(people);
-        // [<Name: Randy, Age: 21>, <Name: Pete, Age: 12>, <Name: Dan, Age: 18>]
+        System.out.println(cars);
+        // [<Make: Audi, Year: 2009>, <Make: Ford, Year: 2021>, <Make: Honda, Year: 2012>]
     }
 }
