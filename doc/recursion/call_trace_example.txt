@@ -1,0 +1,19 @@
+This is an example of what I expect for a call trace.
+
+This is for the function factorial - defined as:
+Formula: f(n) = n * f(n-1)
+Base cases:
+  - When n == 1, return 1
+  - When n == 0, return 1
+
+
+1. factorial(4)
+
+f(4) =
+4 * (f(3)) =
+4 * (3 * f(2)) =
+4 * (3 * (2 * f(1))) =
+4 * (3 * (2 * 1)) =
+4 * (3 * 2) =
+4 * 6 =
+24
