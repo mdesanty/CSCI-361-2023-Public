@@ -10,7 +10,7 @@ public class Plates {
         plateMap = new HashMap<>();
     }
 
-    public void buildMap() {
+    public void buildMap(String filePath) {
         // Implement me...
     }
 
