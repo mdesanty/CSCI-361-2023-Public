@@ -3,18 +3,18 @@ package labs.sets_and_maps;
 public class Main {
     public static void main(String[] args) {
         Plates main = new Plates();
-        main.buildMap();
+        main.buildMap(args[0]);
         main.printCounts();
 
         /*
          * The output should be:
          *
          * Number of Plates: 6
+         * CT -> 1
          * MA -> 2
+         * RI -> 4
          * ME -> 3
-         * WA -> 1
          * NY -> 5
-         * NJ -> 2
          * VT -> 1
          */
     }
