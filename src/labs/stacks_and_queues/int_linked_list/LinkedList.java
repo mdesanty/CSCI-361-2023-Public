@@ -32,11 +32,11 @@ public class LinkedList {
 
     }
 
-    public void removeHead() {
+    public int removeHead() {
 
     }
 
-    public void removeTail() {
+    public int removeTail() {
 
     }
 
